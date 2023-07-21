@@ -1,6 +1,6 @@
 # Volkswagen drivetrain CAN bus IDs (PQ46)
 ---
-## Shortkefys:
+## Shortkeys:
 
 `b0, b1, b...` - means byte index
 
@@ -64,10 +64,15 @@
   * (?) `b3` - ambient light level (very low values)
 + **0x3A0**
   * (?) `b6` - some ticks, correlates speed
++ **0x3BA**
+  * `b2` - Buzer beep type 1 (`bit0`), type 2 (`bit1`). Side Assist LED. Yellow on (`bit3`), Green on (`bit4`). 
 + **0x3D0**
   * (?) `b0` - noisy when steering, wheel amplifier?
++ **0x470**
+  * `b4` - Backlight brightness. Min 0x1B, max 0x64
 + **0x480**
   * `b0` - strange counter, if it has ticks with `b0 & 0b100001 == 0b100001` then DPF regeneration is active
+  * `b1` - DPF icon on dashboard (`bit1`)
   * (?) `b3` - slowly grows up when engine on, grow correlates speed, fuel concumption?
   * `b5` - clutch fully disengaged (`bit7`)
 + **0x488**
@@ -101,6 +106,5 @@
   * `b7` - saw, level means acceleration/braking (binary)
 + **0x5E0**
   * `b4`, `b6` - climate on/off
-
 
 
