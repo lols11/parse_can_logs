@@ -1,6 +1,6 @@
 # Volkswagen drivetrain CAN bus IDs (PQ46)
 ---
-## Shortkeys:
+## Shortkefys:
 
 `b0, b1, b...` - means byte index
 
