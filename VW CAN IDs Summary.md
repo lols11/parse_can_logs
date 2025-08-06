@@ -1,4 +1,4 @@
-<img width="316" height="35" alt="image" src="https://github.com/user-attachments/assets/a0abb8f8-18b0-4141-9524-1d0f942fab53" /><img width="316" height="35" alt="image" src="https://github.com/user-attachments/assets/af2824e5-0058-4237-b3bc-df617e4bc38d" /># Volkswagen drivetrain CAN bus IDs (PQ46)
+# Volkswagen drivetrain CAN bus IDs (PQ46)
 ---
 ## Shortkeys:
 
