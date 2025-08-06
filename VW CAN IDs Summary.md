@@ -1,4 +1,4 @@
-# Volkswagen drivetrain CAN bus IDs (PQ46)
+<img width="316" height="35" alt="image" src="https://github.com/user-attachments/assets/a0abb8f8-18b0-4141-9524-1d0f942fab53" /><img width="316" height="35" alt="image" src="https://github.com/user-attachments/assets/af2824e5-0058-4237-b3bc-df617e4bc38d" /># Volkswagen drivetrain CAN bus IDs (PQ46)
 ---
 ## Shortkeys:
 
@@ -22,6 +22,7 @@
   * `b3<<8+b2` - speed
   * (?) `b7` - noise
 + **0x1AC**
+  * `b0` - Checksum
   * (?) `b1` - saw on 0/128 levels, ACC braking
   * (?) `b4` - noisy, correlates d(speed)
   * (?) `b5` - braking with engine, only on cruise (`bit7`)?
@@ -64,20 +65,23 @@
   * (?) `b3` - ambient light level (very low values)
 + **0x3A0**
   * (?) `b6` - some ticks, correlates speed
-+ **0x3BA**
-  * `b2` - Buzer beep type 1 (`bit0`), type 2 (`bit1`). Side Assist LED. Yellow on (`bit3`), Green on (`bit4`). 
 + **0x3D0**
   * (?) `b0` - noisy when steering, wheel amplifier?
-+ **0x470**
-  * `b4` - Backlight brightness. Min 0x1B, max 0x64
-+ **0x480**
-  * `b0` - strange counter, if it has ticks with `b0 & 0b100001 == 0b100001` then DPF regeneration is active
-  * `b1` - DPF icon on dashboard (`bit1`)
++ **0x480** - This can ID is partially multiplexed and could have different signals depending on multiplex counter.
+  * `b0 & 0x0F` - Number of cylinders
+  * `(b0 >> 4) & 0x01` - Engine aspiration (0 = trubo, 1 = naturally aspirated)
+  * `(b0 >> 5) & 0x01` - Fuel type (0 = gasoline, 1 = diesel)
+  * `(b0 >> 6) & 0x03` - Multiplex code
+  * `b0` - if it has ticks with `b0 & 0b100001 == 0b100001` then DPF regeneration is active
+  * `b1` - DPF icon on dashboard (`bit1`), Coolant hot icon (`bit5`)
   * (?) `b3` - slowly grows up when engine on, grow correlates speed, fuel concumption?
   * `b5` - clutch fully disengaged (`bit7`)
+  * `b7` - Checksum
 + **0x488**
+  * `b0` - Checksum
   * `b1`, `b2` - same values, torque or engine load
 + **0x48A**
+  * `b0` - Checksum
   * (?) `b2<<8+b1` - low values, correlates RPM
   * `b6` - selected/recommended gear (calculated from speed/rpm ratio)
 + **0x4A0**
